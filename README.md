@@ -1,5 +1,3 @@
-
-
 # Test
 
 This project was generated using [Nx](https://nx.dev).
@@ -7,6 +5,18 @@ This project was generated using [Nx](https://nx.dev).
 <p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
 🔎 **Smart, Fast and Extensible Build System**
+
+## The problem
+
+I have libs built with js/tsc that depend on other libs also built with js/tsc. I want to be able to run the tests in my libs on the build output, but since tsc doesn't resolve path mappings from tsconfig.base.json, the tests won't be able to resolve the imports that use the path mappings.
+
+To generate the error:
+
+```bash
+npm install
+npx nx build my-app
+npx nx test-build lib-a
+```
 
 ## Adding capabilities to your workspace
 
@@ -78,8 +88,6 @@ Run `nx graph` to see a diagram of the dependencies of your projects.
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
 
 ## ☁ Nx Cloud
 

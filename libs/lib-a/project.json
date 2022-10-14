@@ -28,6 +28,14 @@
         "jestConfig": "libs/lib-a/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "test-build": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/lib-a"],
+      "options": {
+        "jestConfig": "libs/lib-a/jest.build.config.js",
+        "passWithNoTests": true
+      }
     }
   },
   "tags": []
