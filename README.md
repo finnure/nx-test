@@ -8,8 +8,9 @@ This project was generated using [Nx](https://nx.dev).
 
 ## The problem
 
-I have libs built with js/tsc that depend on other libs also built with js/tsc. I want to be able to run the tests in my libs on the build output, but since tsc doesn't resolve path mappings from tsconfig.base.json, the tests won't be able to resolve the imports that use the path mappings.
+My team recently added Nx to our monorepo and everything is working great. There is one problem though that is blocking us from moving forward in breaking our libs up into smaller pieces. Our build pipeline runs all tests on the build output, mainly because running them on the source takes about 10x more time. The libs are built with js/tsc. Because tsc doesn't resolve path mappings in tsconfig on build, if lib-a depends on lib-b using path map import, running tests on the build output of lib-a won't work because the build output of lib-a still has the path map import used to reference lib-b.
 
+This repo is setup as a demo to shows this problem.
 To generate the error:
 
 ```bash
